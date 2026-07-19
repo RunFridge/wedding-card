@@ -1,0 +1,286 @@
+{
+  "nav": {
+    "menu": "메인 메뉴",
+    "home": "홈",
+    "map": "지도",
+    "guestbook": "방명록",
+    "game": "게임",
+    "photo": "카메라"
+  },
+  "common": {
+    "confirm": "확인",
+    "cancel": "취소",
+    "close": "닫기",
+    "back": "돌아가기",
+    "like": "좋아요",
+    "namePlaceholder": "이름을 입력하세요",
+    "passwordLength": "비밀번호는 5-30자로 입력해주세요",
+    "deletePrompt": "삭제하려면 비밀번호를 입력하세요",
+    "wrongPassword": "비밀번호가 틀렸습니다",
+    "deleteFailed": "삭제에 실패했습니다"
+  },
+  "app": {
+    "switchLanguage": "언어 변경",
+    "localeLabel": "한",
+    "share": "초대장 공유",
+    "showUi": "UI 보이기",
+    "hideUi": "UI 숨기기",
+    "dayMode": "낮 모드로 전환",
+    "nightMode": "밤 모드로 전환",
+    "shareTitle": "{groom} ♥ {bride} 결혼식에 초대합니다",
+    "anonymousPrefix": "익명_",
+    "linkCopied": "링크가 복사되었습니다",
+    "hofCongrats": "축하합니다!",
+    "hofAllAchieved": "모든 도전과제를 달성했습니다!",
+    "hofLeaveName": "명예의 전당에 이름을 남겨주세요",
+    "hofAnonymous": "익명으로 기록하기"
+  },
+  "notFound": {
+    "message": "이 페이지를 찾을 수 없습니다",
+    "goHome": "홈으로 돌아가기"
+  },
+  "dialog": {
+    "password": "비밀번호",
+    "passwordPlaceholder": "비밀번호 입력",
+    "name": "이름",
+    "message": "메시지",
+    "messagePlaceholder": "메시지를 입력하세요"
+  },
+  "home": {
+    "untilWedding": "결혼식까지",
+    "thankYou": "감사합니다",
+    "groomParents": "신랑측 혼주",
+    "brideParents": "신부측 혼주",
+    "gift": "마음 전하실 곳",
+    "groomSide": "신랑측",
+    "brideSide": "신부측",
+    "copy": "복사",
+    "copyAccountAria": "{name} 계좌번호 복사",
+    "accountCopied": "계좌번호가 복사되었습니다"
+  },
+  "map": {
+    "title": "오시는 길",
+    "subtitle": "오시는 길을 확인하고 편하게 찾아오세요!",
+    "address": "주소",
+    "copyAddress": "주소 복사",
+    "copied": "복사 완료!",
+    "openInAria": "{provider}에서 길찾기",
+    "charterBus": "전세버스 안내",
+    "charterBusNotice": "전세버스 탑승 안내",
+    "transport": "교통 안내",
+    "subway": "지하철",
+    "bus": "버스",
+    "car": "자가용",
+    "venueContact": "웨딩홀 연락처",
+    "providers": {
+      "tmap": "티맵",
+      "google": "구글맵",
+      "kakao": "카카오맵",
+      "naver": "네이버 지도"
+    }
+  },
+  "guestbook": {
+    "title": "방명록",
+    "subtitle": "신랑 신부에게 축하 메시지를 남겨주세요!",
+    "nameLabel": "이름",
+    "messageLabel": "메시지",
+    "messagePlaceholder": "축하 메시지를 작성해주세요...",
+    "passwordLabel": "비밀번호",
+    "passwordPlaceholder": "수정/삭제 시 필요 (5-30자)",
+    "secret": "비밀 메시지",
+    "secretHint": "신랑 신부만 볼 수 있어요",
+    "submitting": "등록 중...",
+    "submit": "등록하기",
+    "emptyLine1": "아직 메시지가 없습니다.",
+    "emptyLine2": "첫 번째 축하 메시지를 남겨주세요!",
+    "editAria": "수정",
+    "deleteAria": "삭제",
+    "editTitle": "메시지 수정",
+    "enterPassword": "비밀번호를 입력하세요",
+    "submitFailed": "메시지 등록에 실패했습니다",
+    "verifyFailed": "확인에 실패했습니다",
+    "updateFailed": "수정에 실패했습니다",
+    "unsavedConfirm": "작성 중인 내용이 있습니다. 페이지를 떠나시겠습니까?"
+  },
+  "game": {
+    "title": "그림 맞추기 게임",
+    "subtitle": "제한 시간 안에 같은 그림을 모두 맞춰보세요!",
+    "rankAchieved": "{rank}위 달성!",
+    "congrats": "축하합니다!",
+    "instruction": "{seconds}초 안에 같은 그림 짝을 찾으세요",
+    "start": "게임 시작",
+    "leaderboard": "순위표",
+    "viewAllPhotos": "모든 사진 보기",
+    "pairCounter": "{matched}/{total} 쌍",
+    "match": "맞춤!",
+    "won": "성공!",
+    "elapsed": "소요 시간: {seconds}초",
+    "initialsLabel": "이니셜을 입력하세요 (영문 3자)",
+    "saving": "저장 중...",
+    "saveScore": "점수 저장",
+    "playAgain": "다시 하기",
+    "timeUp": "시간 초과!",
+    "pairsMatched": "{matched}/{total} 쌍을 맞추셨습니다",
+    "retry": "다시 도전",
+    "photoLoadFailed": "사진을 불러오는 데 실패했습니다",
+    "scoreSaveFailed": "점수 저장에 실패했습니다"
+  },
+  "photo": {
+    "title": "사진",
+    "subtitle": "결혼식 현장의 사진을 공유해주세요!",
+    "availableFrom": "사진 업로드는 결혼식 {duration} 전부터 이용 가능합니다",
+    "durationDays": "{n}일",
+    "durationHours": "{n}시간",
+    "unitDays": "일",
+    "unitHours": "시간",
+    "unitMinutes": "분",
+    "unitSeconds": "초",
+    "notReady": "사진 업로드 기능이 아직 준비되지 않았습니다",
+    "tryLater": "잠시 후 다시 시도해주세요",
+    "nameLabel": "이름",
+    "passwordLabel": "비밀번호",
+    "passwordPlaceholder": "삭제 시 필요 (5-30자)",
+    "openCamera": "카메라 열기",
+    "choosePhoto": "사진 선택",
+    "previewAlt": "미리보기",
+    "uploading": "업로드 중...",
+    "uploadingProgress": "업로드 중... {done}/{total}",
+    "addMore": "사진 추가",
+    "editHint": "사진을 누르면 편집할 수 있어요",
+    "removePhotoAria": "사진 제거",
+    "upload": "업로드",
+    "uploadCount": "{n}장 업로드",
+    "sortRecent": "최신순",
+    "sortPopular": "인기순",
+    "empty": "아직 사진이 없습니다",
+    "menuAria": "메뉴",
+    "deletePhoto": "사진 삭제",
+    "uploadSuccess": "사진이 업로드되었습니다!\n관리자 승인 후 표시됩니다.",
+    "uploadDisabled": "사진 업로드가 비활성화되어 있습니다",
+    "uploadFailed": "사진 업로드에 실패했습니다",
+    "uploadPartialFailed": "{n}장의 사진 업로드에 실패했습니다.\n다시 시도해주세요.",
+    "deleted": "사진이 삭제되었습니다",
+    "unsavedConfirm": "선택한 사진이 있습니다. 페이지를 떠나시겠습니까?"
+  },
+  "photoEditor": {
+    "reset": "초기화",
+    "done": "완료",
+    "tabs": {
+      "crop": "자르기",
+      "adjust": "보정"
+    },
+    "ratios": {
+      "free": "자유",
+      "square": "1:1",
+      "landscape": "4:3",
+      "portrait": "3:4"
+    },
+    "filters": {
+      "original": "원본",
+      "warm": "따뜻한",
+      "cool": "시원한",
+      "sepia": "세피아",
+      "grayscale": "흑백",
+      "vivid": "선명한"
+    },
+    "adjustments": {
+      "brightness": "밝기",
+      "contrast": "대비",
+      "saturation": "채도"
+    }
+  },
+  "lightbox": {
+    "viewer": "사진 뷰어",
+    "photoAlt": "사진 {current}/{total}",
+    "prev": "이전 사진",
+    "next": "다음 사진"
+  },
+  "achievementsView": {
+    "title": "도전과제",
+    "progress": "{earned}/{total} 달성",
+    "medalNote": "금·은·동메달은 하나만 달성해도 인정됩니다",
+    "localOnly": "도전과제는 현재 브라우저에만 저장됩니다"
+  },
+  "hallOfFame": {
+    "title": "명예의 전당",
+    "subtitle": "모든 도전과제를 달성한 분들입니다",
+    "empty": "아직 명예의 전당에 이름을 올린 사람이 없습니다."
+  },
+  "achievements": {
+    "gallery": {
+      "name": "사진 갤러리 해금",
+      "description": "게임 클리어로 웨딩 사진 해금"
+    },
+    "gold": {
+      "name": "금메달",
+      "description": "1위 달성"
+    },
+    "silver": {
+      "name": "은메달",
+      "description": "2위 이상 달성"
+    },
+    "bronze": {
+      "name": "동메달",
+      "description": "3위 이상 달성"
+    },
+    "guestbook": {
+      "name": "축하 메시지",
+      "description": "방명록에 메시지 작성"
+    },
+    "photo": {
+      "name": "포토그래퍼",
+      "description": "사진 업로드 완료"
+    },
+    "heart": {
+      "name": "첫 좋아요",
+      "description": "사진에 하트 누르기"
+    },
+    "gallery_all": {
+      "name": "갤러리 마스터",
+      "description": "게임 사진 모두 열람"
+    },
+    "theme": {
+      "name": "인테리어 디자이너",
+      "description": "테마 전환 버튼 누르기"
+    },
+    "speed": {
+      "name": "스피드 러너",
+      "description": "10초 이내에 게임 클리어"
+    },
+    "wedding_day": {
+      "name": "결혼식 당일",
+      "description": "결혼식 당일에 방문"
+    }
+  },
+  "privacy": {
+    "title": "개인정보처리방침",
+    "intro": "본 청첩장은 방명록, 사진 업로드, 게임 기록 등의 기능 제공과 중복 참여·악용 방지를 위해 아래 정보를 수집·이용합니다.",
+    "collectLabel": "수집 항목",
+    "collectBody": "닉네임, 메시지, 업로드한 사진, 접속 IP(일방향 해시 처리하여 저장)",
+    "purposeLabel": "이용 목적",
+    "purposeBody": "청첩장 기능 운영, 중복 참여 방지, 부적절한 콘텐츠 차단",
+    "retentionLabel": "보관 및 파기",
+    "retentionBody": "수집된 정보는 청첩장 운영 목적 외에 사용하지 않으며, 결혼식 종료 후 또는 요청 시 삭제됩니다.",
+    "selfManage": "방명록·사진은 등록 시 설정한 비밀번호로 본인이 직접 수정·삭제할 수 있습니다."
+  },
+  "errors": {
+    "invalid_request_body": "잘못된 요청입니다",
+    "invalid_id": "유효하지 않은 항목입니다",
+    "not_found": "항목을 찾을 수 없습니다",
+    "wrong_password": "비밀번호가 틀렸습니다",
+    "nickname_required": "이름을 입력해주세요",
+    "nickname_length": "이름은 20자 이내로 입력해주세요",
+    "nickname_format": "이니셜은 영문 대문자 3자로 입력해주세요",
+    "message_length": "메시지는 1-500자로 입력해주세요",
+    "password_length": "비밀번호는 5-30자로 입력해주세요",
+    "name_required": "이름을 입력해주세요 (최대 50자)",
+    "file_too_large": "파일이 너무 큽니다 (최대 10MB)",
+    "image_required": "이미지 파일을 선택해주세요",
+    "image_files_only": "이미지 파일만 업로드할 수 있습니다",
+    "unsupported_image_format": "지원하지 않는 이미지 형식입니다",
+    "game_token_required": "게임 세션이 만료되었습니다. 다시 시도해주세요",
+    "invalid_game_session": "게임 세션이 유효하지 않습니다. 다시 시도해주세요",
+    "time_range": "유효하지 않은 기록입니다",
+    "network": "네트워크 오류가 발생했습니다"
+  }
+}

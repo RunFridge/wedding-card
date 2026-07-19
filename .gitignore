@@ -1,0 +1,46 @@
+# Binaries
+wedding-server
+*.exe
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+
+# Frontend build (included in repo via .gitkeep)
+web/dist/*
+!web/dist/.gitkeep
+web/admin/*
+!web/admin/.gitkeep
+
+# Generated OG image
+frontend/public/title_card.png
+
+# Node
+frontend/node_modules/
+frontend/.vite/
+admin-frontend/node_modules/
+admin-frontend/.vite/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage.out
+coverage.html
+frontend/coverage/
+admin-frontend/coverage/
+
+# Environment
+.env
+admin_password.txt
+
+# AI Agents
+.claude

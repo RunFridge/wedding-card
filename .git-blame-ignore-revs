@@ -1,0 +1,5 @@
+# style: format frontend and admin-frontend with prettier
+9185a39b60552134d9d07a58676acd83bee3244d
+
+# style: reformat with semicolons, remove semi:false from prettier config
+4c4acd0d7909b12693a58e98bc37f391a3ccceae

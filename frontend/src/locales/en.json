@@ -1,0 +1,286 @@
+{
+  "nav": {
+    "menu": "Main menu",
+    "home": "Home",
+    "map": "Map",
+    "guestbook": "Guestbook",
+    "game": "Game",
+    "photo": "Photos"
+  },
+  "common": {
+    "confirm": "OK",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "like": "Like",
+    "namePlaceholder": "Enter your name",
+    "passwordLength": "Password must be 5-30 characters",
+    "deletePrompt": "Enter your password to delete",
+    "wrongPassword": "Wrong password",
+    "deleteFailed": "Failed to delete"
+  },
+  "app": {
+    "switchLanguage": "Change language",
+    "localeLabel": "EN",
+    "share": "Share invitation",
+    "showUi": "Show UI",
+    "hideUi": "Hide UI",
+    "dayMode": "Switch to day mode",
+    "nightMode": "Switch to night mode",
+    "shareTitle": "You are invited to {groom} & {bride}'s wedding",
+    "anonymousPrefix": "anon_",
+    "linkCopied": "Link copied",
+    "hofCongrats": "Congratulations!",
+    "hofAllAchieved": "You unlocked every achievement!",
+    "hofLeaveName": "Leave your name in the Hall of Fame",
+    "hofAnonymous": "Record anonymously"
+  },
+  "notFound": {
+    "message": "This page could not be found",
+    "goHome": "Back to home"
+  },
+  "dialog": {
+    "password": "Password",
+    "passwordPlaceholder": "Enter password",
+    "name": "Name",
+    "message": "Message",
+    "messagePlaceholder": "Enter your message"
+  },
+  "home": {
+    "untilWedding": "Until the wedding",
+    "thankYou": "Thank you",
+    "groomParents": "Groom's parents",
+    "brideParents": "Bride's parents",
+    "gift": "Wedding gift accounts",
+    "groomSide": "Groom's side",
+    "brideSide": "Bride's side",
+    "copy": "Copy",
+    "copyAccountAria": "Copy {name}'s account number",
+    "accountCopied": "Account number copied"
+  },
+  "map": {
+    "title": "Directions",
+    "subtitle": "Check the directions and find your way with ease!",
+    "address": "Address",
+    "copyAddress": "Copy address",
+    "copied": "Copied!",
+    "openInAria": "Get directions in {provider}",
+    "charterBus": "Charter bus",
+    "charterBusNotice": "Charter bus boarding notice",
+    "transport": "Transportation",
+    "subway": "Subway",
+    "bus": "Bus",
+    "car": "By car",
+    "venueContact": "Venue contact",
+    "providers": {
+      "tmap": "TMAP",
+      "google": "Google Maps",
+      "kakao": "KakaoMap",
+      "naver": "Naver Map"
+    }
+  },
+  "guestbook": {
+    "title": "Guestbook",
+    "subtitle": "Leave a congratulatory message for the couple!",
+    "nameLabel": "Name",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your congratulations...",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Needed to edit/delete (5-30 chars)",
+    "secret": "Secret message",
+    "secretHint": "Only the couple can see it",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "emptyLine1": "No messages yet.",
+    "emptyLine2": "Be the first to leave one!",
+    "editAria": "Edit",
+    "deleteAria": "Delete",
+    "editTitle": "Edit message",
+    "enterPassword": "Enter your password",
+    "submitFailed": "Failed to submit your message",
+    "verifyFailed": "Failed to verify password",
+    "updateFailed": "Failed to update your message",
+    "unsavedConfirm": "You have unsaved changes. Leave this page?"
+  },
+  "game": {
+    "title": "Matching Game",
+    "subtitle": "Match all the pairs before time runs out!",
+    "rankAchieved": "Ranked #{rank}!",
+    "congrats": "Congratulations!",
+    "instruction": "Find the matching pairs within {seconds} seconds",
+    "start": "Start Game",
+    "leaderboard": "Leaderboard",
+    "viewAllPhotos": "View all photos",
+    "pairCounter": "{matched}/{total} pairs",
+    "match": "Match!",
+    "won": "You did it!",
+    "elapsed": "Time: {seconds}s",
+    "initialsLabel": "Enter your initials (3 letters)",
+    "saving": "Saving...",
+    "saveScore": "Save Score",
+    "playAgain": "Play Again",
+    "timeUp": "Time's up!",
+    "pairsMatched": "You matched {matched}/{total} pairs",
+    "retry": "Try Again",
+    "photoLoadFailed": "Failed to load photos",
+    "scoreSaveFailed": "Failed to save your score"
+  },
+  "photo": {
+    "title": "Photos",
+    "subtitle": "Share your photos from the wedding!",
+    "availableFrom": "Photo uploads open {duration} before the wedding",
+    "durationDays": "{n} day | {n} days",
+    "durationHours": "{n} hour | {n} hours",
+    "unitDays": "days",
+    "unitHours": "hours",
+    "unitMinutes": "min",
+    "unitSeconds": "sec",
+    "notReady": "Photo uploads are not ready yet",
+    "tryLater": "Please try again later",
+    "nameLabel": "Name",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Needed to delete (5-30 chars)",
+    "openCamera": "Open camera",
+    "choosePhoto": "Choose photo",
+    "previewAlt": "Preview",
+    "uploading": "Uploading...",
+    "uploadingProgress": "Uploading... {done}/{total}",
+    "addMore": "Add photos",
+    "editHint": "Tap a photo to edit it",
+    "removePhotoAria": "Remove photo",
+    "upload": "Upload",
+    "uploadCount": "Upload {n} photo | Upload {n} photos",
+    "sortRecent": "Newest",
+    "sortPopular": "Popular",
+    "empty": "No photos yet",
+    "menuAria": "Menu",
+    "deletePhoto": "Delete photo",
+    "uploadSuccess": "Photo uploaded!\nIt will appear after admin approval.",
+    "uploadDisabled": "Photo uploads are disabled",
+    "uploadFailed": "Failed to upload photo",
+    "uploadPartialFailed": "{n} photo failed to upload.\nPlease try again. | {n} photos failed to upload.\nPlease try again.",
+    "deleted": "Photo deleted",
+    "unsavedConfirm": "A photo is selected. Leave this page?"
+  },
+  "photoEditor": {
+    "reset": "Reset",
+    "done": "Done",
+    "tabs": {
+      "crop": "Crop",
+      "adjust": "Adjust"
+    },
+    "ratios": {
+      "free": "Free",
+      "square": "1:1",
+      "landscape": "4:3",
+      "portrait": "3:4"
+    },
+    "filters": {
+      "original": "Original",
+      "warm": "Warm",
+      "cool": "Cool",
+      "sepia": "Sepia",
+      "grayscale": "B&W",
+      "vivid": "Vivid"
+    },
+    "adjustments": {
+      "brightness": "Brightness",
+      "contrast": "Contrast",
+      "saturation": "Saturation"
+    }
+  },
+  "lightbox": {
+    "viewer": "Photo viewer",
+    "photoAlt": "Photo {current}/{total}",
+    "prev": "Previous photo",
+    "next": "Next photo"
+  },
+  "achievementsView": {
+    "title": "Achievements",
+    "progress": "{earned}/{total} unlocked",
+    "medalNote": "Only one of the gold, silver, and bronze medals is required",
+    "localOnly": "Achievements are saved only in this browser"
+  },
+  "hallOfFame": {
+    "title": "Hall of Fame",
+    "subtitle": "Guests who unlocked every achievement",
+    "empty": "No one has made the Hall of Fame yet."
+  },
+  "achievements": {
+    "gallery": {
+      "name": "Gallery Unlocked",
+      "description": "Unlock the wedding photos by clearing the game"
+    },
+    "gold": {
+      "name": "Gold Medal",
+      "description": "Reach 1st place"
+    },
+    "silver": {
+      "name": "Silver Medal",
+      "description": "Reach 2nd place or higher"
+    },
+    "bronze": {
+      "name": "Bronze Medal",
+      "description": "Reach 3rd place or higher"
+    },
+    "guestbook": {
+      "name": "Well-Wisher",
+      "description": "Write a message in the guestbook"
+    },
+    "photo": {
+      "name": "Photographer",
+      "description": "Upload a photo"
+    },
+    "heart": {
+      "name": "First Like",
+      "description": "Give a photo a heart"
+    },
+    "gallery_all": {
+      "name": "Gallery Master",
+      "description": "View every game photo"
+    },
+    "theme": {
+      "name": "Interior Designer",
+      "description": "Toggle the day/night theme"
+    },
+    "speed": {
+      "name": "Speed Runner",
+      "description": "Clear the game within 10 seconds"
+    },
+    "wedding_day": {
+      "name": "Wedding Day",
+      "description": "Visit on the wedding day"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "This invitation collects and uses the information below to provide features such as the guestbook, photo uploads, and game records, and to prevent duplicate participation and abuse.",
+    "collectLabel": "Collected data",
+    "collectBody": "Nickname, messages, uploaded photos, IP address (stored as a one-way hash)",
+    "purposeLabel": "Purpose of use",
+    "purposeBody": "Operating invitation features, preventing duplicate participation, blocking inappropriate content",
+    "retentionLabel": "Retention and deletion",
+    "retentionBody": "Collected data is used only to operate this invitation and is deleted after the wedding or upon request.",
+    "selfManage": "You can edit or delete your guestbook entries and photos yourself using the password you set."
+  },
+  "errors": {
+    "invalid_request_body": "Invalid request",
+    "invalid_id": "Invalid item",
+    "not_found": "Not found",
+    "wrong_password": "Wrong password",
+    "nickname_required": "Please enter your name",
+    "nickname_length": "Name must be 20 characters or less",
+    "nickname_format": "Initials must be exactly 3 uppercase letters",
+    "message_length": "Message must be 1-500 characters",
+    "password_length": "Password must be 5-30 characters",
+    "name_required": "Please enter your name (max 50 characters)",
+    "file_too_large": "File too large (max 10MB)",
+    "image_required": "Please choose an image file",
+    "image_files_only": "Only image files are allowed",
+    "unsupported_image_format": "Unsupported image format",
+    "game_token_required": "Game session expired. Please try again",
+    "invalid_game_session": "Invalid game session. Please try again",
+    "time_range": "Invalid game record",
+    "network": "A network error occurred"
+  }
+}

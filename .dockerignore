@@ -1,0 +1,8 @@
+.git
+.claude
+.env
+*.db
+*.db-wal
+*.db-shm
+wedding-server
+frontend/node_modules

@@ -1,0 +1,19 @@
+services:
+  wedding-server:
+    image: ${WEDDING_IMAGE:-ghcr.io/runfridge/wedding-card:latest}
+    ports:
+      - "8080:8080"
+    volumes:
+      - wedding-data:/data
+    environment:
+      - DATABASE_PATH=/data/wedding.db
+      - TZ=${TZ:-Asia/Seoul}
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+    restart: unless-stopped
+
+volumes:
+  wedding-data:

@@ -1,0 +1,436 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+:root {
+  color-scheme: light only;
+
+  --c-primary: 139 105 20;
+  --c-secondary: 92 58 14;
+  --c-accent: 76 175 80;
+  --c-grass: 58 125 34;
+  --c-sky: 135 206 235;
+  --c-wood: 160 114 42;
+  --c-wood-dark: 107 69 19;
+  --c-parchment: 245 230 200;
+  --c-parchment-dark: 232 213 168;
+
+  --panel-bg: #A0722A;
+  --panel-border: #6B4513;
+  --panel-highlight: #C4943A;
+  --panel-shadow: #5C3A0E;
+  --panel-inner-bg: #F5E6C8;
+  --panel-inner-border: #6B4513;
+  --parchment-bg: #F5E6C8;
+  --parchment-border: #D4B483;
+  --btn-bg: #8B6914;
+  --btn-border: #5C3A0E;
+  --btn-highlight: #C4943A;
+  --btn-shadow: #6B4513;
+  --input-bg: #FFF8E7;
+  --input-border: #6B4513;
+  --input-focus: #8B6914;
+  --body-bg: #2d5a1b;
+  --scrollbar-track: #2d5a1b;
+  --scrollbar-thumb: #8B6914;
+  --scrollbar-thumb-border: #5C3A0E;
+  --scrollbar-thumb-hover: #A0722A;
+  --nail-color: #5C3A0E;
+  --nail-border: #3a2508;
+}
+
+html.dark {
+  color-scheme: dark;
+
+  --c-primary: 196 148 58;
+  --c-secondary: 220 200 170;
+  --c-accent: 76 175 80;
+  --c-grass: 20 50 12;
+  --c-sky: 30 40 80;
+  --c-wood: 90 62 25;
+  --c-wood-dark: 140 110 70;
+  --c-parchment: 245 230 200;
+  --c-parchment-dark: 220 200 170;
+
+  --panel-bg: #3a2510;
+  --panel-border: #2a1a08;
+  --panel-highlight: #5a3a18;
+  --panel-shadow: #1a0e04;
+  --panel-inner-bg: #1e1408;
+  --panel-inner-border: #3a2510;
+  --parchment-bg: #1e1408;
+  --parchment-border: #3a2a18;
+  --btn-bg: #5a4010;
+  --btn-border: #3a2808;
+  --btn-highlight: #7a5818;
+  --btn-shadow: #2a1a08;
+  --input-bg: #2a1e10;
+  --input-border: #4a3518;
+  --input-focus: #7a5818;
+  --body-bg: #0f1f0a;
+  --scrollbar-track: #0f1f0a;
+  --scrollbar-thumb: #3a2510;
+  --scrollbar-thumb-border: #2a1a08;
+  --scrollbar-thumb-hover: #4a3518;
+  --nail-color: #5a3a18;
+  --nail-border: #2a1a08;
+}
+
+@font-face {
+  font-family: 'NeoDunggeunmo';
+  src: url('./assets/fonts/NeoDunggeunmo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'NeoDunggeunmo', monospace;
+  background-color: var(--body-bg);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  image-rendering: pixelated;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  transition: background-color 0.8s ease;
+}
+
+* {
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+/* ─── Wooden Panel ─── */
+.wooden-panel {
+  background-color: var(--panel-bg);
+  border: 4px solid var(--panel-border);
+  box-shadow:
+    inset 2px 2px 0 var(--panel-highlight),
+    inset -2px -2px 0 var(--panel-shadow),
+    4px 4px 0 rgba(0, 0, 0, 0.3);
+  image-rendering: pixelated;
+  position: relative;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 18px,
+      rgba(92, 58, 14, 0.08) 18px,
+      rgba(92, 58, 14, 0.08) 20px
+    );
+  transition: background-color 0.8s ease, border-color 0.8s ease,
+              box-shadow 0.8s ease, color 0.8s ease;
+}
+
+.wooden-panel-inner {
+  background-color: var(--panel-inner-bg);
+  border: 3px solid var(--panel-inner-border);
+  box-shadow:
+    inset 2px 2px 0 rgba(0, 0, 0, 0.1),
+    inset -2px -2px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  transition: background-color 0.8s ease, border-color 0.8s ease,
+              box-shadow 0.8s ease, color 0.8s ease;
+}
+
+html.dark .wooden-panel-inner {
+  box-shadow:
+    inset 2px 2px 0 rgba(0, 0, 0, 0.3),
+    inset -2px -2px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Corner nails on wooden panels */
+.wooden-panel::before,
+.wooden-panel::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--nail-color);
+  border: 1px solid var(--nail-border);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.wooden-panel::before {
+  top: 4px;
+  left: 4px;
+  box-shadow:
+    calc(100% - 13px) 0 0 0 var(--nail-color);
+}
+
+.wooden-panel::after {
+  bottom: 4px;
+  left: 4px;
+  box-shadow:
+    calc(100% - 13px) 0 0 0 var(--nail-color);
+}
+
+/* ─── Spinner ─── */
+.pixel-spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid var(--panel-border, #A0722A);
+  border-top-color: var(--parchment-bg, #F5E6C8);
+  border-radius: 50%;
+  animation: pixel-spin 0.8s steps(8) infinite;
+}
+
+@keyframes pixel-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Checkbox ─── */
+.pixel-checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: var(--input-bg);
+  border: 3px solid var(--input-border);
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.pixel-checkbox.is-checked {
+  background-color: var(--btn-bg);
+  border-color: var(--btn-border);
+}
+
+.pixel-checkmark {
+  color: #fff8e7;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+/* ─── Parchment ─── */
+.parchment-bg {
+  background-color: var(--parchment-bg);
+  border: 2px solid var(--parchment-border);
+  box-shadow: inset 0 0 10px rgba(139, 105, 20, 0.1);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(139, 105, 20, 0.03) 0%, transparent 70%),
+    radial-gradient(ellipse at 80% 50%, rgba(139, 105, 20, 0.03) 0%, transparent 70%);
+  transition: background-color 0.8s ease, border-color 0.8s ease,
+              box-shadow 0.8s ease, color 0.8s ease;
+}
+
+html.dark .parchment-bg {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(255, 200, 100, 0.02) 0%, transparent 70%),
+    radial-gradient(ellipse at 80% 50%, rgba(255, 200, 100, 0.02) 0%, transparent 70%);
+}
+
+/* ─── Pixel Buttons ─── */
+.pixel-btn {
+  background-color: var(--btn-bg);
+  color: white;
+  border: 3px solid var(--btn-border);
+  box-shadow:
+    inset 2px 2px 0 var(--btn-highlight),
+    inset -2px -2px 0 var(--btn-shadow),
+    3px 3px 0 rgba(0, 0, 0, 0.3);
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.1s, background-color 0.8s ease, border-color 0.8s ease,
+              box-shadow 0.8s ease, color 0.8s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.pixel-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 2px 2px 0 var(--btn-highlight),
+    inset -2px -2px 0 var(--btn-shadow),
+    4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.pixel-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -2px -2px 0 var(--btn-highlight),
+    inset 2px 2px 0 var(--btn-shadow),
+    1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.pixel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pixel-btn-outline {
+  background-color: transparent;
+  color: rgb(var(--c-primary));
+  border: 3px solid rgb(var(--c-primary));
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.1s, background-color 0.8s ease, border-color 0.8s ease,
+              box-shadow 0.8s ease, color 0.8s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pixel-btn-outline:hover {
+  background-color: rgba(139, 105, 20, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ─── Pixel Input ─── */
+.pixel-input {
+  background-color: var(--input-bg);
+  border: 3px solid var(--input-border);
+  box-shadow:
+    inset 2px 2px 0 rgba(0, 0, 0, 0.1);
+  padding: 8px 12px;
+  outline: none;
+  color: rgb(var(--c-secondary));
+  font-family: 'NeoDunggeunmo', monospace;
+  transition: background-color 0.8s ease, border-color 0.8s ease,
+              box-shadow 0.8s ease, color 0.8s ease;
+}
+
+.pixel-input:focus {
+  border-color: var(--input-focus);
+  box-shadow:
+    inset 2px 2px 0 rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(139, 105, 20, 0.3);
+}
+
+.pixel-input::placeholder {
+  color: rgb(var(--c-secondary) / 0.4);
+}
+
+/* ─── Stardew Divider ─── */
+.stardew-divider {
+  height: 6px;
+  position: relative;
+  background: transparent;
+}
+
+.stardew-divider::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--panel-border), transparent);
+}
+
+.stardew-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: rgb(var(--c-primary));
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* ─── Animations ─── */
+@keyframes pixel-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.pixel-bounce {
+  animation: pixel-bounce 0.6s ease-in-out;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ─── Custom Cursors (PC only) ─── */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: url('./assets/cursor/normal_selects.png'), auto;
+  }
+
+  a, button, [role="button"], label[for],
+  input[type="submit"], input[type="button"],
+  .pixel-btn, .pixel-btn-outline, .cursor-pointer {
+    cursor: url('./assets/cursor/text_select.png'), pointer;
+  }
+
+  input, textarea, [contenteditable] {
+    cursor: url('./assets/cursor/text_select.png'), text;
+  }
+
+  *:disabled, .pointer-events-none {
+    cursor: url('./assets/cursor/unavailable.png'), not-allowed;
+  }
+
+  .grabbing, *:active[draggable="true"] {
+    cursor: url('./assets/cursor/move.png'), move;
+  }
+
+  .wait, .busy {
+    cursor: url('./assets/cursor/busy.png'), wait;
+  }
+
+  .progress {
+    cursor: url('./assets/cursor/working_in_background.png'), progress;
+  }
+
+  .help {
+    cursor: url('./assets/cursor/help_select.png'), help;
+  }
+}
+
+/* ─── Scrollbar (Stardew themed) ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border: 2px solid var(--scrollbar-thumb-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
