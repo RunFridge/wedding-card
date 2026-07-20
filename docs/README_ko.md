@@ -10,7 +10,7 @@
 
 도커 컨테이너 하나로 모든 것이 동작합니다. 클라우드 계정도, 월 구독료도, 필수 외부 서비스도 없습니다.
 
-> **🌐 라이브 데모:** [demo_wedding.runfridge.dev](https://demo_wedding.runfridge.dev) — 직접 호스팅하기 전에 먼저 체험해 보세요.
+> **🌐 라이브 데모:** [demo-wedding.runfridge.dev](https://demo-wedding.runfridge.dev/) — 직접 호스팅하기 전에 먼저 체험해 보세요.
 > ⚠️ 데모 서버이므로 언제든 중단되거나 데이터가 초기화될 수 있습니다.
 
 ## 하객이 만나는 것들

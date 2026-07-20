@@ -10,7 +10,7 @@ A self-hostable Korean wedding invitation website with a cozy Stardew Valley pix
 
 Everything runs from a single Docker container. No cloud accounts, no monthly fees, no external services required.
 
-> **🌐 Live demo:** [demo_wedding.runfridge.dev](https://demo_wedding.runfridge.dev) — try it before hosting your own.
+> **🌐 Live demo:** [demo-wedding.runfridge.dev](https://demo-wedding.runfridge.dev/) — try it before hosting your own.
 > ⚠️ It's a demo server: it may be down and its data may be reset at any time.
 
 ## What Your Guests Get
