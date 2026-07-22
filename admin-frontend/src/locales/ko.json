@@ -2,6 +2,10 @@
   "app": {
     "localeLabel": "한국어"
   },
+  "demo": {
+    "banner": "데모 모드 — 모든 데이터는 주기적으로 초기화됩니다",
+    "disabled": "데모 모드에서는 비활성화됩니다"
+  },
   "nav": {
     "adminPanel": "관리자 패널",
     "dashboard": "대시보드",

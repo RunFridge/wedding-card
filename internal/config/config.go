@@ -41,8 +41,13 @@ type Config struct {
 
 	SetupRequired bool
 
+	DemoMode      bool
+	DemoResetCron string
+
 	Wedding WeddingConfig
 }
+
+const DefaultDemoResetCron = "0 2 * * 6"
 
 type BusInfoEntry struct {
 	Stop   string `json:"stop"`
@@ -129,6 +134,14 @@ func Load() *Config {
 
 	if dbPath := os.Getenv("DATABASE_PATH"); dbPath != "" {
 		cfg.DatabasePath = dbPath
+	}
+
+	demoMode := os.Getenv("DEMO_MODE")
+	cfg.DemoMode = demoMode == "1" || strings.EqualFold(demoMode, "true")
+
+	cfg.DemoResetCron = DefaultDemoResetCron
+	if spec := os.Getenv("DEMO_RESET_CRON"); spec != "" {
+		cfg.DemoResetCron = spec
 	}
 
 	cfg.Wedding = loadWeddingDefaults()

@@ -8,6 +8,8 @@ services:
     environment:
       - DATABASE_PATH=/data/wedding.db
       - TZ=${TZ:-Asia/Seoul}
+      - DEMO_MODE=${DEMO_MODE:-}
+      - DEMO_RESET_CRON=${DEMO_RESET_CRON:-}
     logging:
       driver: json-file
       options:

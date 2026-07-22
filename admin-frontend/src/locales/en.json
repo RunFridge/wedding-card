@@ -2,6 +2,10 @@
   "app": {
     "localeLabel": "English"
   },
+  "demo": {
+    "banner": "Demo mode — all data is reset periodically",
+    "disabled": "Disabled in demo mode"
+  },
   "nav": {
     "adminPanel": "Admin Panel",
     "dashboard": "Dashboard",

@@ -44,6 +44,7 @@ func GetWeddingConfig(w http.ResponseWriter, r *http.Request) {
 		log.Printf("Failed to count game asset photos: %v", err)
 	}
 	result["game_photo_count"] = gameCount
+	result["demo"] = config.Cfg.DemoMode
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(result)

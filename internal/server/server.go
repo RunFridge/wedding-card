@@ -130,7 +130,7 @@ func registerAPIRoutes(r chi.Router, rateLimit func(int, time.Duration) func(htt
 				r.Delete("/photos/{id}", handlers.AdminDeletePhoto)
 				r.Post("/photos/{id}/reset-hearts", handlers.AdminResetPhotoHearts)
 				r.Get("/session", handlers.AdminSession)
-				r.Put("/password", handlers.AdminChangePassword)
+				r.With(demoGuard).Put("/password", handlers.AdminChangePassword)
 				r.Get("/moderation/status", handlers.AdminGetModerationStatus)
 				r.Get("/config", handlers.AdminGetConfig)
 				r.Put("/config", handlers.AdminUpdateConfig)
@@ -141,19 +141,31 @@ func registerAPIRoutes(r chi.Router, rateLimit func(int, time.Duration) func(htt
 				r.Patch("/asset-photos/{id}", handlers.AdminUpdateAssetPhoto)
 				r.Delete("/asset-photos/{id}", handlers.AdminDeleteAssetPhoto)
 				r.Get("/system-settings", handlers.AdminGetSystemSettings)
-				r.Put("/system-settings", handlers.AdminUpdateSystemSettings)
-				r.Post("/system-settings/test-s3", handlers.AdminTestS3Connection)
-				r.Post("/system-settings/test-moderation", handlers.AdminTestModeration)
+				r.With(demoGuard).Put("/system-settings", handlers.AdminUpdateSystemSettings)
+				r.With(demoGuard).Post("/system-settings/test-s3", handlers.AdminTestS3Connection)
+				r.With(demoGuard).Post("/system-settings/test-moderation", handlers.AdminTestModeration)
 				r.Get("/hall-of-fame", handlers.AdminGetHallOfFame)
 				r.Delete("/hall-of-fame/{id}", handlers.AdminDeleteHallOfFameEntry)
 				r.Get("/page-views", handlers.AdminGetPageViews)
 				r.Get("/game-beats", handlers.AdminGetGameBeats)
 				r.Get("/logs", handlers.AdminStreamLogs)
 				r.Post("/setup/complete", handlers.AdminCompleteSetup)
-				r.Post("/restart", handlers.AdminRestartServer)
+				r.With(demoGuard).Post("/restart", handlers.AdminRestartServer)
 				r.Get("/ws", handlers.HandleAdminWS)
 			})
 		})
+	})
+}
+
+func demoGuard(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if config.Cfg.DemoMode {
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusForbidden)
+			fmt.Fprint(w, `{"error":"Not available in demo mode","code":"demo_mode"}`)
+			return
+		}
+		next.ServeHTTP(w, r)
 	})
 }
 

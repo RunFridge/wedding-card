@@ -3,6 +3,7 @@ import { onMounted, onUnmounted, reactive, ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useSystemSettings } from '@/composables/useSystemSettings';
 import { useConfig } from '@/composables/useConfig';
+import { isDemo } from '@/lib/demo';
 import type { SystemSettings } from '@/types/admin';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -427,7 +428,7 @@ async function handleRestart() {
             <div class="flex items-center gap-3">
               <Button
                 variant="outline"
-                :disabled="testing || !form.s3_bucket"
+                :disabled="testing || !form.s3_bucket || isDemo"
                 @click="handleTestS3"
               >
                 <Wifi class="mr-2 h-4 w-4" />
@@ -537,7 +538,7 @@ async function handleRestart() {
           :description="t('system.restartConfirmDesc')"
           @confirm="handleRestart"
         >
-          <Button variant="destructive" size="sm">
+          <Button variant="destructive" size="sm" :disabled="isDemo">
             <RotateCcw class="mr-2 h-4 w-4" />
             {{ t('system.restartButton') }}
           </Button>
@@ -553,10 +554,13 @@ async function handleRestart() {
 
       <!-- Save -->
       <div class="flex items-center gap-3">
-        <Button :disabled="saving || !hasChanges" @click="handleSave">
+        <Button :disabled="saving || !hasChanges || isDemo" @click="handleSave">
           <Save class="mr-2 h-4 w-4" />
           {{ saving ? t('common.saving') : t('common.saveSettings') }}
         </Button>
+        <span v-if="isDemo" class="text-sm text-muted-foreground">
+          {{ t('demo.disabled') }}
+        </span>
         <span
           v-if="
             success &&

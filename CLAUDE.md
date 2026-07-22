@@ -10,7 +10,7 @@ Go (chi) backend + Vue.js 3 frontend wedding invitation with interactive feature
 
 ## Key Directories
 
-- `internal/` — Go backend (config, database, handlers, imaging, middleware, models, moderation, session, storage)
+- `internal/` — Go backend (config, database, demo, handlers, imaging, middleware, models, moderation, session, storage)
 - `frontend/src/` — Visitor Vue app (views, components, composables, game/, services/api.ts, config/wedding.ts, lib/store.ts)
 - `admin-frontend/src/` — Admin Vue app (views, components, composables, lib/axios.ts + auth.ts)
 - `web/dist/` + `web/admin/` — Embedded build outputs
@@ -31,6 +31,8 @@ make docker-down      # Compose down -v
 |------|---------|-------------|
 | `PORT` | `8080` | Server port |
 | `DATABASE_PATH` | `./wedding.db` | SQLite database path |
+| `DEMO_MODE` | _(unset)_ | Seed demo data, force admin password `demo_1234!`, show DEMO ribbon, block dangerous admin actions |
+| `DEMO_RESET_CRON` | `0 2 * * 6` | Full wipe + reseed schedule (demo mode only) |
 
 All other config is done through the admin panel (`/-/admin/settings` for wedding details, `/-/admin/system` for system settings).
 
@@ -80,6 +82,7 @@ git tag -a vX.Y.Z -m "vX.Y.Z" && git push && git push --tags
 - Prettier: `singleQuote: true, tabWidth: 2` in both frontends
 - Rate limiting: read 300/min, write 10/min, auth 3/min+10/hr, admin 120/min; toggleable via `rate_limit_enabled`
 - SQLite: WAL mode, `busy_timeout=5000`, `synchronous=NORMAL`
+- Demo mode (`internal/demo`): seeds curated Korean mock data + generated placeholder photos, marker key `sys:demo_seeded`; `demoGuard` in server.go 403s password change, system-settings write, S3/moderation tests, restart; reset = full table wipe + storage delete + reseed via robfig/cron
 - Gzip handled by Nginx, not Go
 - Tests: `npm run test` in each frontend directory (Vitest)
 

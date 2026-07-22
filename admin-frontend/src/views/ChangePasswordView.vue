@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useAuth } from '@/lib/auth';
+import { isDemo } from '@/lib/demo';
 import api from '@/lib/axios';
 import { apiErrorMessage } from '@/lib/apiError';
 import {
@@ -105,7 +106,10 @@ async function handleSubmit() {
             />
           </div>
           <p v-if="error" class="text-sm text-destructive">{{ error }}</p>
-          <Button type="submit" class="w-full" :disabled="loading">
+          <p v-if="isDemo" class="text-sm text-muted-foreground">
+            {{ t('demo.disabled') }}
+          </p>
+          <Button type="submit" class="w-full" :disabled="loading || isDemo">
             {{
               loading ? t('passwordForm.changing') : t('changePassword.title')
             }}

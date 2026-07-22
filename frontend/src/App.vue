@@ -2,6 +2,8 @@
   <div class="min-h-screen font-pixel">
     <div ref="phaserContainer" class="fixed inset-0 z-0"></div>
 
+    <DemoRibbon v-if="DEMO_MODE" />
+
     <!-- Top-right buttons -->
     <div class="fixed top-3 right-3 z-50 flex gap-1.5">
       <button
@@ -231,7 +233,9 @@ import {
   GROOM_ENG_NAME,
   BRIDE_ENG_NAME,
   VENUE_NAME,
+  DEMO_MODE,
 } from './config/wedding';
+import DemoRibbon from './components/DemoRibbon.vue';
 import { useWeddingDate } from './composables/useWeddingDate';
 import { useTheme } from './composables/useTheme';
 import { useI18n } from 'vue-i18n';

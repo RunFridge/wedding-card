@@ -95,12 +95,17 @@ export let SHORT_GREETING = '저희 결혼합니다';
 export let MAIN_GREET_TEXT =
   '소중한 분들을 초대합니다.\n함께 축복해 주시면 더없는 기쁨으로 간직하겠습니다.';
 
+// ─── Demo Mode ───
+export let DEMO_MODE = false;
+
 // ─── Runtime Config Loader ───
 export async function loadConfig(): Promise<void> {
   try {
     const res = await fetch('/api/config');
     if (!res.ok) return;
     const c = await res.json();
+
+    if (c.demo === true) DEMO_MODE = true;
 
     if (c.groom_eng_name) GROOM_ENG_NAME = c.groom_eng_name;
     if (c.groom_kor_name) GROOM_KOR_NAME = c.groom_kor_name;

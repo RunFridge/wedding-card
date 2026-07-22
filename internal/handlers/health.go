@@ -15,5 +15,6 @@ func HealthCheck(w http.ResponseWriter, r *http.Request) {
 		"status":         "ok",
 		"version":        Version,
 		"setup_required": config.Cfg.SetupRequired,
+		"demo":           config.Cfg.DemoMode,
 	})
 }

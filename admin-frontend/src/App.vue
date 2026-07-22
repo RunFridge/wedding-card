@@ -5,6 +5,7 @@ import { useAuth } from '@/lib/auth';
 import { useAdminWS } from '@/composables/useAdminWS';
 import AppSidebar from '@/components/AppSidebar.vue';
 import AppHeader from '@/components/AppHeader.vue';
+import DemoBanner from '@/components/DemoBanner.vue';
 
 const route = useRoute();
 const { authenticated } = useAuth();
@@ -27,6 +28,7 @@ onUnmounted(disconnect);
 </script>
 
 <template>
+  <DemoBanner />
   <div v-if="showLayout" class="flex h-screen">
     <AppSidebar />
     <div class="flex flex-1 flex-col overflow-hidden">

@@ -30,6 +30,10 @@ Technical documentation for developing and building the wedding invitation websi
 ├── Makefile                   # Build/dev shortcuts
 ├── internal/
 │   ├── config/config.go       # App configuration (defaults + DB overrides)
+│   ├── demo/
+│   │   ├── demo.go            # Demo mode: forced admin state, cron-scheduled full reset
+│   │   ├── seed.go            # Curated Korean mock data seeding
+│   │   └── placeholder.go     # Generated pastel placeholder images
 │   ├── database/
 │   │   ├── database.go        # SQLite connection (WAL mode)
 │   │   └── migrations.go      # Auto-run schema migrations

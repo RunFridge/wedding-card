@@ -12,6 +12,7 @@ import (
 
 	"github.com/RunFridge/wedding-card/internal/config"
 	"github.com/RunFridge/wedding-card/internal/database"
+	"github.com/RunFridge/wedding-card/internal/demo"
 	"github.com/RunFridge/wedding-card/internal/handlers"
 	customMiddleware "github.com/RunFridge/wedding-card/internal/middleware"
 	"github.com/RunFridge/wedding-card/internal/models"
@@ -63,6 +64,13 @@ func main() {
 	}
 
 	initStorage(cfg)
+
+	if cfg.DemoMode {
+		if err := demo.Init(cfg.DemoResetCron); err != nil {
+			log.Fatalf("Failed to initialize demo mode: %v", err)
+		}
+	}
+
 	initHeartsHub(cfg)
 	initModeration(cfg)
 
