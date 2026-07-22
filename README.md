@@ -70,30 +70,11 @@ Fill in your wedding details under **Settings**, upload your photos, and share t
 
 > **Tip:** To serve the site on a domain with HTTPS, put a reverse proxy (Caddy, Nginx, Traefik, …) in front of port 8080.
 
-## Demo Mode
+## Try the Demo
 
-Want to show the site off — or let people try the admin panel — without exposing a real wedding? That's what the [live demo](https://demo-wedding.runfridge.dev/) runs. Start with `DEMO_MODE=1`:
+A live demo runs at [demo-wedding.runfridge.dev](https://demo-wedding.runfridge.dev/), with its admin panel at [demo-wedding.runfridge.dev/-/admin/](https://demo-wedding.runfridge.dev/-/admin/) — log in with password `demo_1234!` and look around: post to the guestbook, play the game, approve photos, edit the wedding details. Don't leave anything you'd miss; **all demo data resets weekly**.
 
-```bash
-docker run -d --name wedding-demo \
-  -p 8080:8080 \
-  -e DEMO_MODE=1 \
-  ghcr.io/runfridge/wedding-card:latest
-```
-
-With Docker Compose use `DEMO_MODE=1 docker compose up -d`; from source, point it at a throwaway database: `DEMO_MODE=1 DATABASE_PATH=/tmp/demo/demo.db ./wedding-server`.
-
-> **Demo admin password:** `demo_1234!` — it is fixed, publicly known, and cannot be changed while demo mode is on. Never enable `DEMO_MODE` on a real wedding site or database.
-
-What demo mode does:
-
-- The site boots pre-filled with a fictional Korean wedding: guestbook messages, game rankings, visitor stats, and generated placeholder photos for the gallery and card game
-- The setup wizard is skipped and no `admin_password.txt` is left behind
-- A DEMO ribbon appears on the invitation and a banner in the admin panel
-- Everything — guest content and admin changes alike — is wiped and reseeded on a schedule set by the `DEMO_RESET_CRON` environment variable (default `0 2 * * 6`: Saturday 2 AM, server time). To watch a reset happen while testing, set `DEMO_RESET_CRON="* * * * *"` for a reset every minute
-- Dangerous admin actions are disabled: changing the password, editing system settings, S3/moderation connection tests, and restarting the server
-
-Demo mode is intended for local storage on a throwaway database; don't point it at data you care about. Note that toggling moderation from the admin panel still requires a restart, so a demo server keeps the moderation state it booted with.
+Want to run a demo instance yourself? See [Demo Mode](docs/DEVELOPMENT.md#demo-mode) in the development guide.
 
 ## Your Data & Backups
 

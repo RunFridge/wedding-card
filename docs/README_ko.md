@@ -70,30 +70,11 @@ docker logs wedding-server
 
 > **팁:** 도메인과 HTTPS로 서비스하려면 8080 포트 앞에 리버스 프록시(Caddy, Nginx, Traefik 등)를 두세요.
 
-## 데모 모드
+## 데모 체험하기
 
-실제 결혼 정보 없이 사이트를 소개하거나 관리자 패널을 체험하게 하고 싶을 때 사용합니다. [라이브 데모](https://demo-wedding.runfridge.dev/)가 바로 이 모드로 동작합니다. `DEMO_MODE=1`로 실행하세요:
+라이브 데모가 [demo-wedding.runfridge.dev](https://demo-wedding.runfridge.dev/)에서 운영 중이며, 관리자 패널은 [demo-wedding.runfridge.dev/-/admin/](https://demo-wedding.runfridge.dev/-/admin/)에서 비밀번호 `demo_1234!`로 로그인할 수 있습니다. 방명록을 남기고, 게임을 해보고, 사진을 승인하고, 예식 정보를 바꿔보세요. 단, 남기고 싶은 건 남기지 마세요 — **모든 데모 데이터는 매주 초기화됩니다**.
 
-```bash
-docker run -d --name wedding-demo \
-  -p 8080:8080 \
-  -e DEMO_MODE=1 \
-  ghcr.io/runfridge/wedding-card:latest
-```
-
-Docker Compose라면 `DEMO_MODE=1 docker compose up -d`, 소스에서 직접 실행한다면 일회용 데이터베이스를 지정해 `DEMO_MODE=1 DATABASE_PATH=/tmp/demo/demo.db ./wedding-server`로 실행하면 됩니다.
-
-> **데모 관리자 비밀번호:** `demo_1234!` — 고정된 공개 비밀번호이며 데모 모드에서는 변경할 수 없습니다. 실제 청첩장 사이트나 데이터베이스에는 절대 `DEMO_MODE`를 켜지 마세요.
-
-데모 모드에서 일어나는 일:
-
-- 가상의 결혼식 데이터가 미리 채워진 채로 시작됩니다: 방명록 메시지, 게임 순위, 방문자 통계, 갤러리와 카드 게임용 생성 이미지까지
-- 설정 마법사를 건너뛰고 `admin_password.txt` 파일도 남기지 않습니다
-- 청첩장에는 DEMO 리본이, 관리자 패널에는 데모 배너가 표시됩니다
-- 하객이 남긴 것이든 관리자가 바꾼 것이든 모든 데이터가 `DEMO_RESET_CRON` 환경 변수 일정(기본 `0 2 * * 6`: 매주 토요일 새벽 2시, 서버 시간)에 초기화 후 다시 채워집니다. 테스트하며 초기화를 직접 보고 싶다면 `DEMO_RESET_CRON="* * * * *"`로 매분 초기화되게 할 수 있습니다
-- 위험한 관리자 기능은 비활성화됩니다: 비밀번호 변경, 시스템 설정 수정, S3·검열 연결 테스트, 서버 재시작
-
-데모 모드는 일회용 데이터베이스와 로컬 저장소를 전제로 합니다. 소중한 데이터가 있는 곳에 연결하지 마세요. 검열 설정 변경은 여전히 재시작이 필요하므로, 데모 서버는 시작할 때의 검열 상태를 유지합니다.
+직접 데모 인스턴스를 운영하고 싶다면 개발 가이드의 [Demo Mode](DEVELOPMENT.md#demo-mode)(영문)를 참고하세요.
 
 ## 데이터와 백업
 

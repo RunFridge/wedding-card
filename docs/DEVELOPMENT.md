@@ -145,6 +145,30 @@ Almost everything is configured in the admin panel. Only these live outside it:
 | `PORT` | `8080` | Server listen port |
 | `DATABASE_PATH` | `./wedding.db` | Database file path (set to `/data/wedding.db` in the Docker image) |
 | `TZ` | system | Container timezone (e.g. `Asia/Seoul`) |
+| `DEMO_MODE` | _(unset)_ | Run as a public demo — see [Demo Mode](#demo-mode) |
+| `DEMO_RESET_CRON` | `0 2 * * 6` | Cron schedule for the full demo reset (demo mode only) |
+
+## Demo Mode
+
+Set `DEMO_MODE=1` (or `true`) to run the server as a public demo — this is what powers [demo-wedding.runfridge.dev](https://demo-wedding.runfridge.dev/).
+
+```bash
+docker run -d --name wedding-demo -p 8080:8080 -e DEMO_MODE=1 ghcr.io/runfridge/wedding-card:latest
+
+# or with Docker Compose / from source
+DEMO_MODE=1 docker compose up -d
+DEMO_MODE=1 DATABASE_PATH=/tmp/demo/demo.db ./wedding-server
+```
+
+What it does (implementation lives in `internal/demo/`):
+
+- **Seeding** — on first boot the site is pre-filled with a fictional wedding (Alice & Bob, naturally): curated Korean guestbook messages, arcade rankings, Hall of Fame entries, two weeks of visitor/game stats, an embedded main photo, numbered card images for the matching game, and generated pastel placeholder guest photos. Seeding is marked with the `sys:demo_seeded` config key, so a restart does not duplicate data.
+- **Forced admin state** — every boot forces the admin password to `demo_1234!` (fixed, publicly known), marks setup complete so the wizard never shows, and removes `admin_password.txt`.
+- **DEMO indicators** — the visitor page shows a corner DEMO ribbon and the admin panel a bottom banner; both frontends read the `demo` flag exposed by `GET /api/health` and `GET /api/config`.
+- **Scheduled reset** — a cron job (`DEMO_RESET_CRON`, standard 5-field syntax via robfig/cron, default Saturday 2 AM server time) wipes every table and stored photo, reverts all admin changes, and reseeds. An invalid cron spec fails at boot. To watch a reset while testing, set `DEMO_RESET_CRON="* * * * *"`.
+- **Guarded endpoints** — a `demoGuard` middleware returns `403 {"code":"demo_mode"}` for the destructive/abusable admin actions: `PUT /api/admin/password`, `PUT /api/admin/system-settings`, `POST /api/admin/system-settings/test-s3`, `POST /api/admin/system-settings/test-moderation`, and `POST /api/admin/restart`. The corresponding admin UI controls are disabled. Everything else (content curation, wedding config, purges) stays open — the weekly reset recovers it.
+
+Caveats: demo mode is intended for local storage on a throwaway database — never point it at data you care about, since the reset deletes everything including the admin password hash and all config overrides. Toggling moderation from the admin panel still requires a restart, so a demo server keeps the moderation state it booted with.
 
 ## API Endpoints
 
