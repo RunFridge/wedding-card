@@ -47,6 +47,8 @@ func NewRouter(deps Deps) chi.Router {
 
 	registerAPIRoutes(r, conditionalRateLimit)
 
+	r.Get("/simple", handlers.SimplePage)
+
 	registerSPAHandler(r, deps.StaticFS, deps.AdminFS)
 
 	return r

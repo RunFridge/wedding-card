@@ -107,6 +107,7 @@ const form = reactive<WeddingConfig>({
   avatar_colors: '',
   short_greeting: '',
   main_greet_text: '',
+  simple_redirect_url: '',
   photo_upload_enabled: false,
   photo_upload_hours_before: 1,
   hearts_flush_interval_ms: 2000,
@@ -521,6 +522,18 @@ async function handleSave() {
                   placeholder="소중한 분들을 초대합니다.&#10;함께 축복해 주시면 더없는 기쁨으로 간직하겠습니다."
                   class="flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 />
+              </div>
+              <div>
+                <label class="mb-1 block text-sm font-medium">{{
+                  t('settings.simpleRedirectUrl')
+                }}</label>
+                <Input
+                  v-model="form.simple_redirect_url"
+                  placeholder="https://..."
+                />
+                <p class="mt-1 text-xs text-muted-foreground">
+                  {{ t('settings.simpleRedirectUrlHint') }}
+                </p>
               </div>
             </CardContent>
           </Card>

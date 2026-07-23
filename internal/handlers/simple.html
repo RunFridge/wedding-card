@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f1eb" />
+    <title>{{.GroomKorName}} · {{.BrideKorName}} 결혼합니다</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/roboto@5.3.0/index.min.css" />
+    <style>
+      :root {
+        --ink: #3c3935;
+        --muted: #807a72;
+        --paper: #f7f1eb;
+        --line: #d9cabe;
+        --accent: #b98678;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100svh;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 6% 6%, rgba(207, 178, 155, .25), transparent 24rem),
+          radial-gradient(circle at 95% 96%, rgba(185, 134, 120, .17), transparent 28rem),
+          var(--paper);
+        font-family: Roboto, "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        font-size: 17px;
+        line-height: 1.9;
+        word-break: keep-all;
+      }
+
+      main {
+        max-width: 620px;
+        margin: 0 auto;
+        padding: 3.5rem 1.6rem 4rem;
+        text-align: center;
+        animation: appear 1.2s ease-out both;
+      }
+
+      .branch {
+        width: 96px;
+        height: 56px;
+        margin: 0 auto 2.1rem;
+        position: relative;
+        border-top: 1px solid var(--accent);
+        border-radius: 50%;
+        transform: rotate(-9deg);
+      }
+
+      .branch::before, .branch::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 12px;
+        border: 1px solid var(--accent);
+        border-radius: 100% 0 100% 0;
+        background: rgba(247, 241, 235, .7);
+      }
+
+      .branch::before { left: 18px; top: -11px; transform: rotate(24deg); }
+      .branch::after { right: 12px; top: 10px; transform: rotate(128deg); }
+
+      .eyebrow {
+        margin: 0 0 1.25rem;
+        color: var(--accent);
+        font-size: .82rem;
+        font-weight: 500;
+        letter-spacing: .24em;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 7vw, 2.9rem);
+        font-weight: 600;
+        letter-spacing: -.045em;
+        line-height: 1.45;
+      }
+
+      .family {
+        margin: 1.6rem 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .family p { margin: .2rem 0; }
+
+      .line {
+        width: 1px;
+        height: 42px;
+        margin: 2.6rem auto;
+        background: var(--line);
+      }
+
+      section h2 {
+        margin: 0 0 1.1rem;
+        color: var(--accent);
+        font-size: .82rem;
+        font-weight: 500;
+        letter-spacing: .24em;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-weight: 400;
+      }
+
+      .greeting { white-space: pre-line; }
+
+      .strong {
+        color: var(--ink);
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      a { color: var(--accent); }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .6rem;
+        margin-top: 1.4rem;
+      }
+
+      .buttons a {
+        padding: .55rem 1.15rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--ink);
+        font-size: .95rem;
+        text-decoration: none;
+        background: rgba(255, 255, 255, .45);
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: var(--muted);
+      }
+
+      dl { margin: 0; }
+
+      dt {
+        margin-top: 1.3rem;
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      dd { margin: 0; color: var(--muted); }
+
+      .accounts li + li { margin-top: .9rem; }
+
+      .accounts .label {
+        display: block;
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      footer {
+        margin-top: 3.2rem;
+        font-size: .95rem;
+      }
+
+      @keyframes appear {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="branch" aria-hidden="true"></div>
+      {{if .ShortGreeting}}<p class="eyebrow">{{.ShortGreeting}}</p>{{end}}
+      <h1>{{.GroomKorName}} · {{.BrideKorName}}</h1>
+      {{if or .GroomFamilyLine .BrideFamilyLine}}
+      <div class="family">
+        {{if .GroomFamilyLine}}<p>{{.GroomFamilyLine}}</p>{{end}}
+        {{if .BrideFamilyLine}}<p>{{.BrideFamilyLine}}</p>{{end}}
+      </div>
+      {{end}}
+
+      {{if .MainGreetText}}
+      <div class="line" aria-hidden="true"></div>
+      <section>
+        <p class="greeting">{{.MainGreetText}}</p>
+      </section>
+      {{end}}
+
+      {{if .DateText}}
+      <div class="line" aria-hidden="true"></div>
+      <section>
+        <h2>예식 일시</h2>
+        <p class="strong">{{.DateText}}</p>
+      </section>
+      {{end}}
+
+      {{if .VenueName}}
+      <div class="line" aria-hidden="true"></div>
+      <section>
+        <h2>예식 장소</h2>
+        <p class="strong">{{.VenueName}}{{if .VenueFloor}} {{.VenueFloor}}{{end}}{{if .VenueHall}} {{.VenueHall}}{{end}}</p>
+        {{if .VenueAddress}}<p>{{.VenueAddress}}</p>{{end}}
+        {{if .VenuePhone}}<p><a href="tel:{{.VenuePhone}}">{{.VenuePhone}}</a></p>{{end}}
+        {{with .MapProviders.Links}}
+        {{if or .Kakao .Naver .Tmap .Google}}
+        <div class="buttons">
+          {{if .Kakao}}<a href="{{.Kakao}}">카카오맵</a>{{end}}
+          {{if .Naver}}<a href="{{.Naver}}">네이버 지도</a>{{end}}
+          {{if .Tmap}}<a href="{{.Tmap}}">티맵</a>{{end}}
+          {{if .Google}}<a href="{{.Google}}">구글 지도</a>{{end}}
+        </div>
+        {{end}}
+        {{end}}
+      </section>
+      {{end}}
+
+      {{if or .SubwayInfo .BusInfo .CarInfo .CharterBus}}
+      <div class="line" aria-hidden="true"></div>
+      <section>
+        <h2>오시는 길</h2>
+        <dl>
+          {{if .SubwayInfo}}
+          <dt>지하철</dt>
+          <dd><ul>{{range .SubwayInfo}}<li>{{.}}</li>{{end}}</ul></dd>
+          {{end}}
+          {{if .BusInfo}}
+          <dt>버스</dt>
+          <dd><ul>{{range .BusInfo}}<li>{{.Stop}}{{if .Routes}} — {{.Routes}}{{end}}</li>{{end}}</ul></dd>
+          {{end}}
+          {{if .CarInfo}}
+          <dt>자가용</dt>
+          <dd>{{.CarInfo}}</dd>
+          {{end}}
+          {{if .CharterBus}}
+          <dt>전세버스</dt>
+          <dd>
+            <ul>
+              {{range .CharterBus}}<li>{{.Location}}{{if .Departure}} ({{.Departure}} 출발){{end}}{{if .Company}} — {{.Company}}{{end}}{{if .BusNumber}} {{.BusNumber}}{{end}}</li>{{end}}
+            </ul>
+            {{if .CharterBusNotice}}<p>{{.CharterBusNotice}}</p>{{end}}
+          </dd>
+          {{end}}
+        </dl>
+      </section>
+      {{end}}
+
+      {{if .Accounts}}
+      <div class="line" aria-hidden="true"></div>
+      <section>
+        <h2>마음 전하실 곳</h2>
+        <ul class="accounts">
+          {{range .Accounts}}
+          <li><span class="label">{{.Label}}</span>{{.Value}}</li>
+          {{end}}
+        </ul>
+      </section>
+      {{end}}
+
+      <footer>
+        <a href="/">모바일 청첩장 보기 →</a>
+      </footer>
+    </main>
+  </body>
+</html>

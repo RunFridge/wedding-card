@@ -159,6 +159,8 @@
     "shortGreeting": "Short Greeting",
     "shortGreetingHint": "Short tagline shown under the couple's names",
     "greetingText": "Greeting Text",
+    "simpleRedirectUrl": "Simple Page Redirect URL",
+    "simpleRedirectUrlHint": "Guests visiting /simple see a plain text-only invitation. Set a URL to redirect them to an external invitation card instead.",
     "bankAccounts": "Bank Accounts",
     "groom": "Groom",
     "groomFather": "Groom's Father",

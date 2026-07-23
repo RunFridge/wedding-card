@@ -44,6 +44,8 @@ All prefixed with `/api`. Admin endpoints require `Authorization: Bearer <token>
 
 **WebSocket**: `WS /api/ws` (visitor), `WS /api/admin/ws` (admin, auth required)
 
+**Pages**: `GET /simple` — server-rendered plain HTML invitation (Korean-only, `internal/handlers/simple.go` + embedded `simple.html`); 302s to `simple_redirect_url` wedding-config value when set to a valid http(s) URL
+
 **Admin**: `POST /api/admin/verify`, `GET /api/admin/session`, `GET|PATCH|DELETE /api/admin/guestbook[/{id}[/visibility]]`, `GET|DELETE /api/admin/game/rankings[/{id}]`, `POST /api/admin/game/rankings/purge`, `GET|PATCH|DELETE /api/admin/photos[/{id}[/visibility]]`, `GET|POST|PATCH|DELETE /api/admin/asset-photos[/{id}[/game|/main]]`, `GET|DELETE /api/admin/hall-of-fame[/{id}]`, `GET|PUT /api/admin/config`, `GET|PUT /api/admin/system-settings`, `POST /api/admin/system-settings/test-s3`, `POST /api/admin/system-settings/test-moderation`, `GET /api/admin/page-views`, `GET /api/admin/game-beats`, `GET /api/admin/logs` (SSE), `GET /api/admin/moderation/status`, `POST /api/admin/setup/complete`
 
 ## Database Tables

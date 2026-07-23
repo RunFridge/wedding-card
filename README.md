@@ -21,6 +21,7 @@ Everything runs from a single Docker container. No cloud accounts, no monthly fe
 - **Match Card Game** — A photo-matching mini-game using your wedding photos, with an arcade-style leaderboard, unlockable achievements, and a Hall of Fame
 - **Photo Sharing** — Guests upload photos from the wedding day with a built-in editor (crop, rotate, filters); uploads open shortly before the ceremony with a live countdown
 - **Little Delights** — Day/night themes, an animated pixel-art scene with wandering farm animals, confetti celebrations, and haptic feedback on mobile
+- **Simple Page** — A plain, easy-to-read invitation at `/simple` for guests who find the interactive site overwhelming — just the essentials in large text. You can also point it at an external invitation card instead
 
 ## What You Get
 

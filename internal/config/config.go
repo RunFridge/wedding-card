@@ -110,6 +110,7 @@ type WeddingConfig struct {
 	AvatarColors           string             `json:"avatar_colors"`
 	ShortGreeting          string             `json:"short_greeting"`
 	MainGreetText          string             `json:"main_greet_text"`
+	SimpleRedirectURL      string             `json:"simple_redirect_url"`
 	PhotoUploadEnabled     bool               `json:"photo_upload_enabled"`
 	PhotoUploadHoursBefore float64            `json:"photo_upload_hours_before"`
 	HeartsFlushIntervalMs  int                `json:"hearts_flush_interval_ms"`
@@ -273,6 +274,7 @@ func ApplyOverrides(base WeddingConfig, overrides map[string]string) WeddingConf
 	str("avatar_colors", &c.AvatarColors)
 	str("short_greeting", &c.ShortGreeting)
 	str("main_greet_text", &c.MainGreetText)
+	str("simple_redirect_url", &c.SimpleRedirectURL)
 
 	if v, ok := overrides["photo_upload_enabled"]; ok {
 		c.PhotoUploadEnabled = strings.EqualFold(v, "true")
@@ -374,6 +376,7 @@ func DiffToOverrideMap(base, current WeddingConfig) map[string]string {
 	strDiff("avatar_colors", base.AvatarColors, current.AvatarColors)
 	strDiff("short_greeting", base.ShortGreeting, current.ShortGreeting)
 	strDiff("main_greet_text", base.MainGreetText, current.MainGreetText)
+	strDiff("simple_redirect_url", base.SimpleRedirectURL, current.SimpleRedirectURL)
 
 	if base.PhotoUploadHoursBefore != current.PhotoUploadHoursBefore {
 		diff["photo_upload_hours_before"] = strconv.FormatFloat(current.PhotoUploadHoursBefore, 'f', -1, 64)

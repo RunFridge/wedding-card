@@ -93,6 +93,7 @@ export interface WeddingConfig {
   avatar_colors: string;
   short_greeting: string;
   main_greet_text: string;
+  simple_redirect_url: string;
   photo_upload_enabled: boolean;
   photo_upload_hours_before: number;
   hearts_flush_interval_ms: number;
